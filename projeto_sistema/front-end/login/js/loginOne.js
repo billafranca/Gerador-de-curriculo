@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
     homeLink.addEventListener('click', function(event){
         event.preventDefault();
-        window.location.href = 'loginOne.html';
-        alert('olá, você está em homepage');
+        window.location.href = '../page_explicativa/index.html';
+        alert('redirecionando a home page...');
     });
 
     sobreLink.addEventListener('click', function(event){
