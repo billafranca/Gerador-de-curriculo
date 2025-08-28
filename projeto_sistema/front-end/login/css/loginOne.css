@@ -7,20 +7,27 @@ body{
 
 nav{
     display: flex;
+
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(6px);
     box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    border-radius: 12px;
-    margin: 2rem auto;
-    max-width: 900px;
+    border-radius: 3px;
+    margin: 0rem auto;
+    max-width: 100%;
     flex-wrap: wrap;
     gap: 1rem;
     text-align: center;
     background-color: dodgerblue;
     color: whitesmoke;
+}
+nav{
+    background-image: url(images/gera.png);
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: 85%;
 }
 nav ul{
     list-style: none;
@@ -29,7 +36,7 @@ nav ul{
     padding: 0;
     margin: 0;
     text-align: center;
-    margin-left: 35%;
+    margin-left: 4%;
     color: whitesmoke;
 }
 nav a{
@@ -58,6 +65,7 @@ nav a:hover{
     gap: 1rem;
 }
 #formulario label{
+    font-family: serif;
     font-weight: bold;
     text-align: left;
     margin-bottom: 0.5rem;
@@ -151,6 +159,6 @@ nav a:hover{
 #formulario h3 {
     text-align: center;
     margin: 1rem 0;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: serif;
     color: blues;
 }
