@@ -48,9 +48,8 @@ nav a:hover{
 #formulario{
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    max-width: 400px;
+    max-width: 500px;
     margin: 3rem auto;
     padding: 2rem;
     background: rgba(255, 255, 255, 0.85);
@@ -60,6 +59,7 @@ nav a:hover{
 }
 #formulario label{
     font-weight: bold;
+    text-align: left;
     margin-bottom: 0.5rem;
     color: #333;
 }
@@ -131,4 +131,26 @@ nav a:hover{
     height: 20px;
     vertical-align: middle;
     margin-right: 0.5rem;
+}
+#formulario img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40px;
+    gap: 1rem;
+    margin: 2rem 0;
+    height: 40px;
+    width: 40px;
+}
+#formulario img {
+    display: block;
+    margin: 2rem auto;
+    height: 40px;
+    width: 40px;
+}
+#formulario h3 {
+    text-align: center;
+    margin: 1rem 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: blues;
 }
