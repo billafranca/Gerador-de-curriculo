@@ -1,17 +1,18 @@
-body{
-    background:
-    linear-gradient(135deg, lightblue, pink);
-    
+body {
+    background: linear-gradient(135deg, lightblue, pink);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
 }
 
-nav{
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(6px);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
     border-radius: 3px;
     margin: 0rem auto;
     max-width: 100%;
@@ -21,13 +22,15 @@ nav{
     background-color: dodgerblue;
     color: whitesmoke;
 }
-nav{
+
+nav {
     background-image: url(../../login/css/images/icon_white.png);
     background-size: 40px;
     background-repeat: no-repeat;
     background-position: 85%;
 }
-nav ul{
+
+nav ul {
     list-style: none;
     display: flex;
     gap: 1rem;
@@ -37,7 +40,8 @@ nav ul{
     margin-left: 4%;
     color: whitesmoke;
 }
-nav a{
+
+nav a {
     text-decoration: none;
     color: #333;
     padding: 0.5rem 1rem;
@@ -46,10 +50,12 @@ nav a{
     text-align: center;
     color: whitesmoke;
 }
-nav a:hover{
+
+nav a:hover {
     background: rgba(0, 0, 0, 0.1);
 }
-#botaoCadastro{
+
+#botaoCadastro {
     background-color: blue;
     color: white;
     margin: 0 auto;
@@ -58,18 +64,19 @@ nav a:hover{
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s, color 0.3s;
-    display: block; 
-    text-align: center; 
-    width: fit-content; 
+    display: block;
+    text-align: center;
+    width: fit-content;
     margin-top: 2%;
-} 
+}
+
 #paOne {
-    font-family: 'Courier New', Courier, monospace; 
-    font-size: 40px; 
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 40px;
     text-align: center;
     color: black;
-    margin: 0 auto; 
-    margin-top: 6%;
+    margin: 0 auto;
+    margin-top: 15%;
     background-color: white;
     border-radius: 8px;
     padding: 1%;
@@ -83,21 +90,31 @@ nav a:hover{
 }
 
 @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
 }
 
 @keyframes blink {
-    from { border-color: transparent }
-    to { border-color: black }
+    from {
+        border-color: transparent
+    }
+
+    to {
+        border-color: black
+    }
 }
 
-#rodape{
+#rodape {
     text-align: center;
     padding: 1rem 0;
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(6px);
-    box-shadow: 0 -2px 8px rgba(0,0,0,0.07);
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.07);
     border-top: 1px solid #eee;
     margin-top: 20rem;
     font-size: 0.9rem;
@@ -117,6 +134,7 @@ nav a:hover{
 #githubLucas:hover {
     color: dodgerblue;
 }
+
 #githubPedro img,
 #githubLucas img {
     width: 20px;

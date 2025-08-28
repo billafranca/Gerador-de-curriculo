@@ -1,0 +1,90 @@
+body {
+    background: linear-gradient(135deg, lightblue, pink);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    border-radius: 3px;
+    margin: 0rem auto;
+    max-width: 100%;
+    flex-wrap: wrap;
+    gap: 1rem;
+    text-align: center;
+    background-color: dodgerblue;
+    color: whitesmoke;
+}
+
+nav {
+    background-image: url(../login/css/images/icon_white.png);
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: 85%;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    margin-left: 4%;
+    color: whitesmoke;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background 0.3s;
+    text-align: center;
+    color: whitesmoke;
+}
+
+nav a:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+#rodape {
+    text-align: center;
+    padding: 1rem 0;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.07);
+    border-top: 1px solid #eee;
+    margin-top: 80rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+#githubPedro,
+#githubLucas {
+    display: inline-block;
+    margin: 0 0.5rem;
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+
+#githubPedro:hover,
+#githubLucas:hover {
+    color: dodgerblue;
+}
+
+#githubPedro img,
+#githubLucas img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
