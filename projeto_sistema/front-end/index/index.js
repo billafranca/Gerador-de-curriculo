@@ -1,6 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
     let homeLink = document.getElementById('home');
     let sobreLink = document.getElementById('sobre');
+    let btn = document.getElementById('btnComecar');
+
+    btn.addEventListener("click", function(){
+        alert("perdão, estamos trabalhando nisso ...");
+    })
 
     homeLink.addEventListener('click', function (event) {
         event.preventDefault();
