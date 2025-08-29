@@ -1,12 +1,11 @@
-// Iniciar o servidor web
-package db
+// Operações com o banco de dados
+package repository
 
 import (
 	"database/sql"
 
 	"backend/model"
-
-	"gorm.io/driver/sqlite"
+	
 	"gorm.io/gorm"
 	"github.com/google/uuid"
 )
