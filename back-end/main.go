@@ -3,14 +3,14 @@
 
 package main
 
+// "backend/model"
+// "encoding/json"
 import (
 	"net/http"
 	"fmt"
 	"log"
-	"encoding/json"
 
 	"backend/db"
-	"backend/model"
 )
 
 
@@ -28,9 +28,14 @@ var PORTA string = ":8080"
 
 func main() {
 	db.CreateDB() // Cria o banco de dados
-	
+
+	// fileServer := http.FileServer(http.Dir("../projeto_sistema/front-end/login"))
 	// Passar o caminho do index.html principal
-	http.Handle("/", http.FileServer(http.Dir("./projeto_sistema/login")))
+	// http.Handle("/login/", http.StripPrefix("/login/",fileServer))
+
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "../projeto_sistema/front-end/login/loginOne.html")
+	})
 
 	fmt.Println("Servidor rodando em http://localhost:8080")
 	log.Fatal(http.ListenAndServe(PORTA, nil)) // -> server mux está como nil
