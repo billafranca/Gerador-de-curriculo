@@ -9,34 +9,48 @@
     <link rel="stylesheet" href="css/loginOne.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
 
 </head>
 
 <body>
     <main>
         <header>
-            <nav>
-                <ul>
-                    <li><a id="home">Home</a></li>
-                    <li><a id="sobre">Sobre</a></li>
-                    <li><a id="contato" href="https://github.com/billafranca">Contato</a></li>
-                </ul>
-            </nav>
-            <section id="sectionOne">
-                <form id="formulario">
-                    <h3><img id="imagem1" src="css/images/gera.png" alt="Image 1">Cadastro</h3>
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" required>
+             <nav>
+    <div class="logo">
+        <img src="../login/css/images/icon_white.png" alt="Logo">
+    </div>
+    <ul>
+        <li><a id="home" href="#">Home</a></li>
+        <li><a id="sobre" href="#">Sobre</a></li>
+        <li><a id="contato" href="https://github.com/billafranca">Contato</a></li>
+    </ul>
+</nav>
+           <section id="sectionOne">
+    <form id="formulario">
+        <h3><img id="imagem1" src="css/images/gera.png" alt="Image 1">Cadastro</h3>
+        
+        <div class="mb-3 input-group">
+            <span class="input-group-text text-primary"><i class="bi bi-person-fill"></i></span>
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required>
+        </div>
 
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+        <div class="mb-3 input-group">
+            <span class="input-group-text text-primary"><i class="bi bi-envelope-fill"></i></span>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+        </div>
 
-                    <label for="senha">Senha:</label>
-                    <input type="password" id="senha" name="senha" required>
+        <div class="mb-3 input-group">
+            <span class="input-group-text text-primary"><i class="bi bi-lock-fill"></i></span>
+            <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required>
+        </div>
 
-                    <input id="botao" type="submit" value="Cadastrar">
-                </form>
-            </section>
+        <input id="botao" type="submit" value="Cadastrar">
+    </form>
+</section>
+
+
 
 
             </section>
