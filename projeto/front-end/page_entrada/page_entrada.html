@@ -1,4 +1,18 @@
-body {
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerarrículo</title>
+    <link rel="icon" type="image/x-icon" href="../images/gera.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+</head>
+
+<style>
+    body {
     background: linear-gradient(135deg, lightblue, pink);
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -88,7 +102,7 @@ nav a:hover {
     border-radius: 8px;
     padding: 1%;
     box-shadow: 0 3px 40px lightblue;
-    max-width: 90%;
+    max-width: 40%;
     display: block;
     white-space: nowrap;
     overflow: hidden;
@@ -149,3 +163,39 @@ nav a:hover {
     vertical-align: middle;
     margin-right: 0.5rem;
 }
+</style>
+
+<body>
+    <main>
+        <header>
+             <nav>
+    <div class="logo">
+        <img src="images/icon_white.png" alt="Logo">
+    </div>
+    <ul>
+        <li><a id="home" href="#">Home</a></li>
+        <li><a id="sobre" href="#">Sobre</a></li>
+        <li><a id="contato" href="https://github.com/billafranca">Contato</a></li>
+    </ul>
+</nav>
+        </header>
+        <section id="secaoUm">
+            <p id="paOne">Gere o seu currículo!</p>
+            <button id="botaoCadastro">Cadastrar</button>
+        </section>
+    </main>
+    <script src="js/page_entrada.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+<footer id="rodape">
+
+    <a id="githubPedro" href="https://github.com/billafranca" target="_blank"><img src="images/github.png"
+            alt="Logo">Billafranca</a>
+    <a id="githubLucas" href="https://github.com/lucas-rabello-dev" target="_blank"><img
+            src="images/github.png" alt="Logo">Lucas Rabello</a>
+    <p>&copy; 2025 Gerarrículo. Todos os direitos reservados.</p>
+</footer>
+
+</html>

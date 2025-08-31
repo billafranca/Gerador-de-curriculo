@@ -23,14 +23,14 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        alert('Formulário enviado com sucesso!');
-        window.location.href = '../index/src/index.html';
+        alert('login realizado, redirecionando... ');
+        window.location.href = '../page_icones/src/page_icones.html';
 
     });
 
     homeLink.addEventListener('click', function (event) {
         event.preventDefault();
-        window.location.href = '../page_explicativa/index.html';
+        window.location.href = '../page_entrada/page_entrada.html';
         alert('redirecionando a home page...');
     });
 
@@ -39,9 +39,29 @@ document.addEventListener('DOMContentLoaded', function () {
         window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     });
 
-    contatoLink.addEventListener('click', function (event) {
-        event.preventDefault();
-        window.location.href = 'https://github.com/billafranca';
-    });
+
+contatoLink.addEventListener('click', function (event) {
+    event.preventDefault();
+
+    let escolha = prompt(
+        "Entre em contato com os desenvolvedores do projeto:\n" +
+        "Digite 1 para Pedro Billafranca\n" +
+        "Digite 2 para Lucas Rabello"
+    );
+
+    if (!escolha) return;
+
+    escolha = escolha.trim();
+
+    if (escolha === "1") {
+        alert("Redirecionando para o GitHub de Pedro Billafranca...");
+        window.location.href = "https://github.com/billafranca";
+    } else if (escolha === "2") {
+        alert("Redirecionando para o GitHub de Lucas Rabello...");
+        window.location.href = "https://github.com/lucas-rabello-dev";
+    } else {
+        alert("Opção inválida. Tente novamente.");
+    }
+});
 
 });

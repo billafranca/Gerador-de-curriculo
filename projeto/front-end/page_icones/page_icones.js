@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     homeLink.addEventListener('click', function (event) {
         event.preventDefault();
         alert('redirecionando para a home page ...');
-        window.location.href = '../../page_explicativa/index.html';
+        window.location.href = '../../page_entrada/page_entrada.html';
     });
     sobreLink.addEventListener('click', function (event) {
         event.preventDefault();
