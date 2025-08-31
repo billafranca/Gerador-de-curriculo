@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let idiomasSelecionados = [];
 
-    
+
     select.addEventListener("change", () => {
         const valor = select.value;
         if (valor && !idiomasSelecionados.includes(valor)) {
@@ -36,11 +36,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-   
+
     form.addEventListener('submit', function (event) {
         event.preventDefault();
 
-       
+
         function validarCampo(id, nomeCampo) {
             const valor = document.getElementById(id).value.trim();
             if (!valor) {
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return true;
         }
 
-        
+
         if (!validarCampo('nome', 'Nome Completo')) return;
         if (!validarCampo('email', 'Email')) {
             const email = document.getElementById('email').value.trim();
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         if (!validarCampo('telefone', 'Telefone')) {
             const telefone = document.getElementById('telefone').value.trim();
-            const regexTel = /^\+?\d{8,15}$/; 
+            const regexTel = /^\+?\d{8,15}$/;
             if (!regexTel.test(telefone)) {
                 alert("Digite um telefone válido (apenas números, pode incluir +).");
                 document.getElementById('telefone').focus();
@@ -77,14 +77,14 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!validarCampo('experiencia', 'Experiência Profissional')) return;
         if (!validarCampo('habilidades', 'Habilidades')) return;
 
-       
+
         if (idiomasSelecionados.length === 0) {
             alert("Selecione pelo menos um idioma.");
             select.focus();
             return;
         }
 
-        
+
         const dadosFormulario = {
             nome: document.getElementById('nome').value.trim(),
             email: document.getElementById('email').value.trim(),
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
         alert("ainda em desenvolvimento...");
     });
 
-  
+
     homeLink.addEventListener('click', function (event) {
         event.preventDefault();
         alert('Redirecionando para a home page ...');
