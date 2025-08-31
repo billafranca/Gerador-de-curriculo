@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let btn = document.getElementById('btnComecar');
 
     btn.addEventListener("click", function(){
-        alert("perdão, estamos trabalhando nisso ...");
+        alert("redirecionando...");
+        window.location.href = '../page_gerador/page_gerador.html';
     })
 
     homeLink.addEventListener('click', function (event) {
