@@ -36,12 +36,12 @@ func main() {
 	// /static/ -> é um prefixo da rota que você configura no Go para servir arquivos static 
 
 	// Servir estáticos (css, js, imagens etc.)
-	fs := http.FileServer(http.Dir("../projeto_sistema/front-end/login"))
-	http.Handle("/login/", http.StripPrefix("/login/", fs))
+	fs := http.FileServer(http.Dir("../projeto/front-end/page_login"))
+	http.Handle("/page_login/", http.StripPrefix("/page_login/", fs))
 
 	// Página inicial
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		http.ServeFile(w, r, "../projeto_sistema/front-end/login/loginOne.html")
+		http.ServeFile(w, r, "../projeto/front-end/page_login/loginOne.html")
 	})
 
 	// Rota para processar o formulário
@@ -56,7 +56,7 @@ func main() {
 			// Aqui você pode fazer o que quiser com os dados, como salvá-los no banco de dados
 			fmt.Fprintf(w, "Nome: %s\nEmail: %s\nSenha: %s\n", nome, email, senha)
 		} else {
-			http.ServeFile(w, r, "../projeto_sistema/front-end/login/loginOne.html")
+			http.ServeFile(w, r, "../projeto/front-end/page_login/loginOne.html")
 		}
 	})
 

@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
     sobreLink.addEventListener('click', function (event) {
         event.preventDefault();
         window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+
     });
 
 
