@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', function () {
     let sobreLink = document.getElementById('sobre');
     let btn = document.getElementById('btnComecar');
 
-    btn.addEventListener("click", function(){
+    btn.addEventListener("click", function () {
         alert("redirecionando...");
-        window.location.href = '../page_gerador/page_gerador.html';
+        window.location.href = '../../page_gerador/gerador.html';
     })
 
     homeLink.addEventListener('click', function (event) {

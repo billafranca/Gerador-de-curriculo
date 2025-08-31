@@ -14,437 +14,444 @@
 
 <style>
     body {
-    background: linear-gradient(135deg, lightblue, pink);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+        background: linear-gradient(135deg, lightblue, pink);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
 
-}
+    }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background: dodgerblue;
-    color: whitesmoke;
-    border-radius: 3px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-    flex-wrap: wrap;
-    gap: 1rem;
-    max-width: 100%;
-}
-
-nav .logo img {
-    width: 40px;
-    height: 40px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-    padding: 0;
-    margin: 0;
-}
-
-nav a {
-    text-decoration: none;
-    color: whitesmoke;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
-nav a:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.05);
-}
-
-@media (max-width: 768px) {
     nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background: dodgerblue;
+        color: whitesmoke;
+        border-radius: 3px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+        flex-wrap: wrap;
+        gap: 1rem;
+        max-width: 100%;
+    }
+
+    nav .logo img {
+        width: 40px;
+        height: 40px;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: whitesmoke;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+        nav {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        nav ul {
+            flex-direction: column;
+            width: 100%;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        nav a {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+
+
+    #rodape {
+        text-align: center;
+        padding: 1rem 0;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(6px);
+        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.07);
+        border-top: 1px solid #eee;
+        margin-top: 30rem;
+        font-size: 0.9rem;
+        color: #555;
+    }
+
+    #githubPedro,
+    #githubLucas {
+        display: inline-block;
+        margin: 0 0.5rem;
+        text-decoration: none;
+        color: #333;
+        transition: color 0.3s;
+    }
+
+    #githubPedro:hover,
+    #githubLucas:hover {
+        color: dodgerblue;
+    }
+
+    #githubPedro img,
+    #githubLucas img {
+        width: 20px;
+        height: 20px;
+        vertical-align: middle;
+        margin-right: 0.5rem;
+    }
+
+    #sectionOne {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        margin: 0 auto;
+        max-width: 1200px;
+        gap: 2rem;
+        margin-top: 40px;
+        flex-wrap: wrap;
+        padding: 1rem;
+    }
+
+    .coluna {
+        display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: space-between;
+        flex: 1 1 300px;
+        max-width: 350px;
+        min-height: 400px;
+        background:
+            linear-gradient(135deg, #e0f7fa, #fce4ec);
+        border-radius: 10px;
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    nav ul {
-        flex-direction: column;
-        width: 100%;
-        gap: 0.5rem;
-        margin-top: 0.5rem;
+
+    .coluna:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
     }
-    nav a {
+
+    #sectionOne img {
         width: 100%;
+        max-width: 200px;
+        height: auto;
+        margin: 0 auto 1rem auto;
+        display: block;
+    }
+
+    #titleUm,
+    #titleDois,
+    #titleTres {
+        text-align: center;
+        color: #000;
+        background-color: #fff;
+        font-family: serif;
+        padding: 1rem;
+        width: 100%;
+        max-width: 280px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        font-size: 1.3rem;
+        margin: 0 auto;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+
+    @media (max-width: 768px) {
+        #sectionOne {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .coluna {
+            max-width: 90%;
+            min-height: auto;
+        }
+
+        #titleUm,
+        #titleDois,
+        #titleTres {
+            font-size: 1.1rem;
+        }
+    }
+
+
+    #btnComecar {
+        display: block;
+        margin: 2rem auto;
+        width: 100%;
+        max-width: 350px;
+        background: linear-gradient(135deg, lightblue, pink);
+        border: 2px solid black;
+        color: #000;
+        cursor: pointer;
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+        border-radius: 10px;
+        transition: all 0.4s ease-in-out;
         text-align: center;
     }
-}
+
+
+    #btnComecar:hover {
+        background: linear-gradient(135deg, pink, lightblue);
+        transform: scale(1.05);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    }
+
+
+    @media (max-width: 768px) {
+        #btnComecar {
+            width: 90%;
+            font-size: 1rem;
+            padding: 0.8rem 1.5rem;
+        }
+    }
 
 
 
-#rodape {
-    text-align: center;
-    padding: 1rem 0;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(6px);
-    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.07);
-    border-top: 1px solid #eee;
-    margin-top: 30rem;
-    font-size: 0.9rem;
-    color: #555;
-}
+    @media screen and (max-width: 600px) {
+        #sectionOne img {
+            width: 70%;
+            height: auto;
+        }
+    }
 
-#githubPedro,
-#githubLucas {
-    display: inline-block;
-    margin: 0 0.5rem;
-    text-decoration: none;
-    color: #333;
-    transition: color 0.3s;
-}
+    @media screen and (max-width: 600px) {
+        nav ul {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+    }
 
-#githubPedro:hover,
-#githubLucas:hover {
-    color: dodgerblue;
-}
+    @media screen and (max-width: 600px) {
+        nav {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
 
-#githubPedro img,
-#githubLucas img {
-    width: 20px;
-    height: 20px;
-    vertical-align: middle;
-    margin-right: 0.5rem;
-}
-
-#sectionOne {
-    display: flex;
-    justify-content: center;
-    align-items: stretch; 
-    margin: 0 auto;
-    max-width: 1200px;
-    gap: 2rem; 
-    margin-top: 40px;
-    flex-wrap: wrap; 
-    padding: 1rem;
-}
-
-.coluna {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between; 
-    flex: 1 1 300px; 
-    max-width: 350px;
-    min-height: 400px;
-    background: 
-        linear-gradient(135deg, #e0f7fa, #fce4ec);
-    border-radius: 10px;
-    padding: 1rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.coluna:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0,0,0,0.2);
-}
-
-#sectionOne img {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-    margin: 0 auto 1rem auto; 
-    display: block;
-}
-
-#titleUm, #titleDois, #titleTres {
-   text-align: center;
-   color: #000;
-   background-color: #fff;
-   font-family: serif;
-   padding: 1rem;
-   width: 100%;       
-   max-width: 280px; 
-   border-radius: 8px;
-   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-   font-size: 1.3rem;
-   margin: 0 auto;
-   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-}
-
-
-@media (max-width: 768px) {
-    #sectionOne {
-        flex-direction: column;
+    .questao {
+        display: flex;
         align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+        margin-right: 2%;
     }
-    .coluna {
-        max-width: 90%;
-        min-height: auto;
-    }
-    #titleUm, #titleDois, #titleTres {
-        font-size: 1.1rem;
-    }
-}
 
-
-#btnComecar {
-    display: block;
-    margin: 2rem auto; 
-    width: 100%;
-    max-width: 350px; 
-    background: linear-gradient(135deg, lightblue, pink);
-    border: 2px solid black;
-    color: #000;
-    cursor: pointer;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    border-radius: 10px;
-    transition: all 0.4s ease-in-out;
-    text-align: center;
-}
-
-
-#btnComecar:hover {
-    background: linear-gradient(135deg, pink, lightblue);
-    transform: scale(1.05);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-}
-
-
-@media (max-width: 768px) {
-    #btnComecar {
-        width: 90%;   
-        font-size: 1rem;
-        padding: 0.8rem 1.5rem;
-    }
-}
-
-
-
-@media screen and (max-width: 600px) {
-    #sectionOne img {
-        width: 70%;
+    #duvida {
+        width: 30px;
         height: auto;
     }
-}
 
-@media screen and (max-width: 600px) {
-    nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
+    #sectionTwo h1 {
+        margin: 0;
+        font-size: 2rem;
+        white-space: nowrap;
     }
-}
 
-@media screen and (max-width: 600px) {
-    nav {
-        flex-direction: column;
-        align-items: flex-start;
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 80px;
+        ;
+        max-width: 100%;
+        margin: 0 auto;
     }
-}
 
-.questao {
-    display: flex;
-    align-items: center; 
-    justify-content: center; 
-    gap: 10px;
-    margin-top: 20px;
-    margin-right: 2%;
-}
+    .box {
+        background: white;
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
 
-#duvida {
-    width: 30px;
-    height: auto;
-}
-    
-#sectionTwo h1 {
-    margin: 0;
-    font-size: 2rem;
-    white-space: nowrap; 
-}
+    .box:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
 
-.container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-    gap: 20px;
-    padding: 80px;;
-    max-width: 100%;
-    margin: 0 auto;
-}
+    .box img {
+        width: 60px;
+        height: auto;
+        margin-bottom: 15px;
+    }
 
-.box {
-    background: white;
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
+    .box h2 {
+        font-size: 1.2rem;
+        margin: 10px 0;
+        color: #222;
+    }
 
-.box:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
+    .box p {
+        font-size: 0.95rem;
+        color: #555;
+        line-height: 1.4;
+    }
 
-.box img {
-    width: 60px;
-    height: auto;
-    margin-bottom: 15px;
-}
+    #sectionThree {
+        padding: 80px 20px;
+        text-align: center;
+        background: linear-gradient(135deg, #e0f7fa, #fce4ec);
+    }
 
-.box h2 {
-    font-size: 1.2rem;
-    margin: 10px 0;
-    color: #222;
-}
+    #sectionThree h1 {
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+        color: #222;
+        font-weight: bold;
+        position: relative;
+        display: inline-block;
+    }
 
-.box p {
-    font-size: 0.95rem;
-    color: #555;
-    line-height: 1.4;
-}
+    #sectionThree h1::after {
+        content: '';
+        position: absolute;
+        width: 60%;
+        height: 4px;
+        background: linear-gradient(90deg, #42a5f5, #ec407a);
+        left: 20%;
+        bottom: -10px;
+        border-radius: 2px;
+    }
 
-#sectionThree {
-    padding: 80px 20px;
-    text-align: center;
-    background: linear-gradient(135deg, #e0f7fa, #fce4ec);
-}
+    .containerDois {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
 
-#sectionThree h1 {
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-    color: #222;
-    font-weight: bold;
-    position: relative;
-    display: inline-block;
-}
+    .boxDois {
+        background: white;
+        border-radius: 18px;
+        padding: 30px 20px;
+        text-align: center;
+        box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
 
-#sectionThree h1::after {
-    content: '';
-    position: absolute;
-    width: 60%;
-    height: 4px;
-    background: linear-gradient(90deg, #42a5f5, #ec407a);
-    left: 20%;
-    bottom: -10px;
-    border-radius: 2px;
-}
+    .boxDois::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(120deg, rgba(66, 165, 245, 0.15), rgba(236, 64, 122, 0.15));
+        transition: all 0.4s ease;
+    }
 
-.containerDois {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    max-width: 1100px;
-    margin: 0 auto;
-}
+    .boxDois:hover::before {
+        left: 0;
+    }
 
-.boxDois {
-    background: white;
-    border-radius: 18px;
-    padding: 30px 20px;
-    text-align: center;
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
+    .boxDois:hover {
+        transform: translateY(-10px) scale(1.03);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
 
-.boxDois::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(120deg, rgba(66, 165, 245, 0.15), rgba(236, 64, 122, 0.15));
-    transition: all 0.4s ease;
-}
+    .boxDois img {
+        width: 70px;
+        margin-bottom: 15px;
+        transition: transform 0.3s ease;
+    }
 
-.boxDois:hover::before {
-    left: 0;
-}
+    .boxDois:hover img {
+        transform: rotate(-5deg) scale(1.1);
+    }
 
-.boxDois:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
+    .boxDois h2 {
+        font-size: 1.3rem;
+        margin: 15px 0;
+        color: #333;
+    }
 
-.boxDois img {
-    width: 70px;
-    margin-bottom: 15px;
-    transition: transform 0.3s ease;
-}
+    .boxDois p {
+        font-size: 1rem;
+        color: #666;
+        line-height: 1.5;
+    }
 
-.boxDois:hover img {
-    transform: rotate(-5deg) scale(1.1);
-}
-
-.boxDois h2 {
-    font-size: 1.3rem;
-    margin: 15px 0;
-    color: #333;
-}
-
-.boxDois p {
-    font-size: 1rem;
-    color: #666;
-    line-height: 1.5;
-}
-
-#tituloFinal {
-    font-size: 100px;
-    text-align: center;
-    margin-bottom: 20px;
-    font-weight: bold;
-    background: linear-gradient(90deg, #42a5f5, #ec407a);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text; 
-    color: transparent;
-}
-
-
+    #tituloFinal {
+        font-size: 100px;
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: bold;
+        background: linear-gradient(90deg, #42a5f5, #ec407a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+    }
 </style>
 
 <body>
     <main>
         <header>
             <nav>
-    <div class="logo">
-        <img src="../images/icon_white.png" alt="Logo">
-    </div>
-    <ul>
-        <li><a id="home" href="#">Home</a></li>
-        <li><a id="sobre" href="#">Sobre</a></li>
-        <li><a id="contato" href="https://github.com/billafranca">Contato</a></li>
-    </ul>
-</nav>
+                <div class="logo">
+                    <img src="../images/icon_white.png" alt="Logo">
+                </div>
+                <ul>
+                    <li><a id="home" href="#">Home</a></li>
+                    <li><a id="sobre" href="#">Sobre</a></li>
+                    <li><a id="contato" href="https://github.com/billafranca">Contato</a></li>
+                </ul>
+            </nav>
 
         </header>
-        <section id="sectionOne">   
-    <div class="coluna">
-        <img id="curriculo" src="../images_icons/curriculo.png">
-        <p id="titleUm">+ de 30 modelos para gerar o seu curriculo!</p>
-    </div>
-    
-    <div class="coluna">
-        <img id="curriculo2" src="../images_icons/curriculoDois.png">
-        <p id="titleDois">Crie seu currículo em minutos!</p>
-    </div>
-    
-    <div class="coluna">
-        <img id="curriculo3" src="../images_icons/curriculoTres.png">
-        <p id="titleTres">Ingresse no mercado profissional!</p>
-    </div>
-    
-    <button id="btnComecar">Criar currículo</button>
-</section>
+        <section id="sectionOne">
+            <div class="coluna">
+                <img id="curriculo" src="../images_icons/curriculo.png">
+                <p id="titleUm">+ de 30 modelos para gerar o seu curriculo!</p>
+            </div>
+
+            <div class="coluna">
+                <img id="curriculo2" src="../images_icons/curriculoDois.png">
+                <p id="titleDois">Crie seu currículo em minutos!</p>
+            </div>
+
+            <div class="coluna">
+                <img id="curriculo3" src="../images_icons/curriculoTres.png">
+                <p id="titleTres">Ingresse no mercado profissional!</p>
+            </div>
+
+            <button id="btnComecar">Criar currículo</button>
+        </section>
         <section id="sectionTwo">
             <div class="questao">
-            <h1>Como criar? </h1>
-            <img id="duvida" src="../images_icons/duvida.png" alt="Dúvida">
+                <h1>Como criar? </h1>
+                <img id="duvida" src="../images_icons/duvida.png" alt="Dúvida">
             </div>
             <div class="container">
                 <div class="box">
-                    
+
                     <img src="../images_icons/escolha.png" alt="Ícone 1">
                     <h2>Escolha um modelo</h2>
                     <p>Selecione entre diversos modelos profissionais e modernos.</p>
@@ -491,7 +498,7 @@ nav a:hover {
                     <h2>Suporte dedicado</h2>
                     <p>Nossa equipe está pronta para ajudar você a qualquer momento.</p>
                 </div>
-            
+
             </div>
         </section>
         <h1 id="tituloFinal">Isso é Gerarrículo!</h1>
@@ -504,10 +511,10 @@ nav a:hover {
 </body>
 <footer id="rodape">
 
-    <a id="githubPedro" href="https://github.com/billafranca" target="_blank"><img
-            src="../images/github.png" alt="Logo">Billafranca</a>
-    <a id="githubLucas" href="https://github.com/lucas-rabello-dev" target="_blank"><img
-            src="../images/github.png" alt="Logo">Lucas Rabello</a>
+    <a id="githubPedro" href="https://github.com/billafranca" target="_blank"><img src="../images/github.png"
+            alt="Logo">Billafranca</a>
+    <a id="githubLucas" href="https://github.com/lucas-rabello-dev" target="_blank"><img src="../images/github.png"
+            alt="Logo">Lucas Rabello</a>
     <p>&copy; 2025 Gerarrículo. Todos os direitos reservados.</p>
 </footer>
 
