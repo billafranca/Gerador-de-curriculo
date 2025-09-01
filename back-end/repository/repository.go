@@ -4,7 +4,7 @@ package repository
 import (
 	"database/sql"
 
-	"backend/model"
+	m "backend/model"
 	
 	"gorm.io/gorm"
 	"github.com/google/uuid"
@@ -22,9 +22,9 @@ type InputHTMLToDB struct {
 func CreateInputHtmlToDB() *InputHTMLToDB{
 	return &InputHTMLToDB{
 		ID_User: uuid.New().String(),
-		Nome: model.UserInputHtml.Nome,
-		Email: model.UserInputHtml.Email,
-		Senha: model.UserInputHtml.Senha,
+		Nome: m.UserInputHtml.Nome,
+		Email: m.UserInputHtml.Email,
+		Senha: m.UserInputHtml.Senha,
 	}
 }
 
