@@ -1,51 +1,63 @@
-// arquivo para fazer a integração do html com Golang
-// e outros
-
 package main
 
 import (
-    "fmt"
-    "log"
-    "net/http"
+	"fmt"
+	"log"
+	"net/http"
 
-    "backend/db"
+	"backend/db"
 )
 
 var PORTA string = ":8000"
 
 func main() {
-    db.CreateDB() // Cria o banco de dados
+	// Inicializa o banco
+	db.CreateDB()
 
-    mux := http.NewServeMux() // Cria um novo ServeMux
+	mux := http.NewServeMux()
 
-    // Servir estáticos (css, js, imagens etc.)
-    fs := http.FileServer(http.Dir("../projeto/front-end/page_login"))
-    mux.Handle("/login/", http.StripPrefix("/login/", fs))
+	// Serve arquivos estáticos (CSS, JS, imagens)
+	fs := http.FileServer(http.Dir("../projeto/front-end/page_login"))
+	mux.Handle("/static/", http.StripPrefix("/static/", fs))
 
-    // Página inicial redireciona para /login
-    mux.HandleFunc("/login", func(w http.ResponseWriter, r *http.Request) {
-        http.ServeFile(w, r, "../projeto/front-end/page_login/index.html")
-    })
+	// Rota de login/cadastro
+	mux.HandleFunc("/login", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == http.MethodPost {
+			// Processa formulário
+			if err := r.ParseForm(); err != nil {
+				http.Error(w, "Erro ao processar formulário", http.StatusBadRequest)
+				return
+			}
 
-    // // Rota para processar o formulário e servir a página de login
-    // mux.HandleFunc("/login", func(w http.ResponseWriter, r *http.Request) {
-    //     if r.Method == http.MethodPost {
-    //         // Process form data
-    //         r.ParseForm()
-    //         nome := r.FormValue("nome")
-    //         email := r.FormValue("email")
-    //         senha := r.FormValue("senha")
+			nome := r.FormValue("nome")
+			email := r.FormValue("email")
+			senha := r.FormValue("senha")
 
-    //         // Aqui você pode fazer o que quiser com os dados, como salvá-los no banco de dados
-    //         fmt.Fprintf(w, "Nome: %s\nEmail: %s\nSenha: %s\n", nome, email, senha)
-    //     } else {
-    //         http.ServeFile(w, r, "../projeto/front-end/page_login/loginOne.html")
-    //     }
-    // })
+			// Cria usuário no banco
+			user, err := db.CreateUser(db.DB, nome, email, senha)
+			if err != nil {
+				http.Error(w, fmt.Sprintf("Erro ao criar usuário: %v", err), http.StatusInternalServerError)
+				return
+			}
 
-    fmt.Println("Servidor rodando em http://localhost:8000")
-    err := http.ListenAndServe(PORTA, mux) // Passa o ServeMux como argumento
-    if err != nil {
-        log.Fatal(err)
-    }
+			// Resposta enviada ao navegador
+			fmt.Fprintf(w, `<h2>Usuário criado com sucesso!</h2>
+				<p>ID: %s<br>Nome: %s<br>Email: %s</p>
+				<a href="/login">Voltar</a>`, user.ID, user.Nome, user.Email)
+			return
+		}
+
+		// Serve apenas o HTML específico
+		http.ServeFile(w, r, "../projeto/front-end/page_login/loginOne.html")
+	})
+
+	// Redireciona a raiz para /login
+	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		http.Redirect(w, r, "/login", http.StatusSeeOther)
+	})
+
+	fmt.Println("Servidor rodando em http://localhost" + PORTA)
+	if err := http.ListenAndServe(PORTA, mux); err != nil {
+		log.Fatal(err)
+	}
 }
