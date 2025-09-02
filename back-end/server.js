@@ -1,62 +1,68 @@
-const express = require('express');
-const mysql = require('mysql2');
-const bodyParser = require('body-parser');
+const express = require("express");
+const bodyParser = require("body-parser");
+const sqlite3 = require("sqlite3").verbose();
+const cors = require("cors");
 
-// Configura o servidor Express
 const app = express();
 const port = 3000;
 
-// Configura o body-parser para interpretar dados JSON
+// middlewares
+app.use(cors());
 app.use(bodyParser.json());
 
-// Conexão com o banco de dados MySQL
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root', // Substitua pelo seu usuário
-    password: '', // Substitua pela sua senha
-    database: 'gerador' // Banco de dados que você criou
+// conecta ao banco SQLite
+const db = new sqlite3.Database("./users.db", (err) => {
+  if (err) {
+    console.error("Erro ao conectar no banco:", err.message);
+  } else {
+    console.log("Conectado ao banco SQLite.");
+  }
 });
 
-// Verifica a conexão com o banco de dados
-db.connect((err) => {
+// cria tabela se não existir
+db.run(`
+  CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    senha TEXT NOT NULL
+  )
+`);
+
+// rota de cadastro
+app.post("/cadastro", (req, res) => {
+  const { nome, email, senha } = req.body;
+
+  if (!nome || !email || !senha) {
+    return res.status(400).json({ message: "Preencha todos os campos!" });
+  }
+
+  const sql = "INSERT INTO users (nome, email, senha) VALUES (?, ?, ?)";
+  db.run(sql, [nome, email, senha], function (err) {
     if (err) {
-        console.error('Erro de conexão com o banco de dados: ' + err.stack);
-        return;
+      console.error("Erro ao inserir:", err.message);
+      return res.status(500).json({ message: "Erro ao cadastrar usuário." });
     }
-    console.log('Conectado ao banco de dados!');
+    res.json({ message: "Usuário cadastrado com sucesso!", id: this.lastID });
+  });
 });
 
-// Rota para cadastrar usuário
-app.post('/cadastrar', (req, res) => {
-    const { nome, email, senha } = req.body;
+// rota de login
+app.post("/login", (req, res) => {
+  const { email, senha } = req.body;
 
-    // Verifica se todos os campos foram preenchidos
-    if (!nome || !email || !senha) {
-        return res.json({ message: 'Preencha todos os campos!' });
+  const sql = "SELECT * FROM users WHERE email = ? AND senha = ?";
+  db.get(sql, [email, senha], (err, row) => {
+    if (err) {
+      return res.status(500).json({ message: "Erro no servidor." });
     }
-
-    // Verifica se o nome de usuário já existe no banco
-    const queryCheck = 'SELECT id FROM usuarios WHERE nome = ?';
-    db.execute(queryCheck, [nome], (err, result) => {
-        if (err) {
-            return res.json({ message: 'Erro ao verificar usuário: ' + err });
-        }
-        if (result.length > 0) {
-            return res.json({ message: `Erro: usuário '${nome}' já existe!` });
-        }
-
-        // Caso o nome de usuário não exista, insere o novo usuário no banco
-        const queryInsert = 'INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)';
-        db.execute(queryInsert, [nome, email, senha], (err, result) => {
-            if (err) {
-                return res.json({ message: 'Erro ao cadastrar: ' + err });
-            }
-            res.json({ message: 'Cadastro realizado com sucesso!' });
-        });
-    });
+    if (!row) {
+      return res.status(401).json({ message: "Credenciais inválidas!" });
+    }
+    res.json({ message: "Login bem-sucedido!", user: row });
+  });
 });
 
-// Inicializa o servidor
 app.listen(port, () => {
-    console.log(`Servidor rodando na porta ${port}`);
+  console.log(`Servidor rodando em http://localhost:${port}`);
 });
