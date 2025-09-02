@@ -44,6 +44,7 @@ app.post("/cadastro", (req, res) => {
       return res.status(500).json({ message: "Erro ao cadastrar usuário." });
     }
     res.json({ message: "Usuário cadastrado com sucesso!", id: this.lastID });
+    
   });
 });
 
