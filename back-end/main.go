@@ -51,6 +51,7 @@ func main() {
 		http.ServeFile(w, r, "../projeto/front-end/page_login/loginOne.html")
 	})
 
+	
 	// Redireciona a raiz para /login
 	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "/login", http.StatusSeeOther)

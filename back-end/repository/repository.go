@@ -1,5 +1,5 @@
-// Operações com o banco de dados
 package repository
+// Operações com o banco de dados
 
 import (
 	"database/sql"
