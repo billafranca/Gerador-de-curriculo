@@ -239,7 +239,10 @@
                         <span class="input-group-text">
                             <i class="bi bi-lock text-primary"></i>
                         </span>
-                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required>
+                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha"
+                            required>
+                        <input type="checkbox" onclick="senha.type = this.checked ? 'text' : 'password'">
+
                     </div>
 
                     <input id="botao" type="submit" value="Cadastrar">
@@ -247,7 +250,7 @@
             </section>
         </header>
     </main>
-    
+
     <script src="js/loginOne.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
