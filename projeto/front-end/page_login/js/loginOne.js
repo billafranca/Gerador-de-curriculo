@@ -1,5 +1,5 @@
 // 1️⃣ Listener do formulário
-document.getElementById('formulario').addEventListener('submit', function(event) {
+document.getElementById('formulario').addEventListener('submit', function (event) {
     event.preventDefault(); // impede envio normal
 
     const nome = document.getElementById('nome').value;
@@ -13,17 +13,17 @@ document.getElementById('formulario').addEventListener('submit', function(event)
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(dados)
     })
-    .then(response => response.json())
-    .then(data => {
-        alert(data.message);
-        if (data.id) {
-            window.location.href = '../page_icones/src/page_icones.html';
-        }
-    })
-    .catch(error => {
-        console.error('Erro:', error);
-        alert('Erro ao cadastrar usuário!');
-    });
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            if (data.id) {
+                window.location.href = '../page_icones/src/page_icones.html';
+            }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            alert('Erro ao cadastrar usuário!');
+        });
 });
 
 
@@ -32,18 +32,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const sobreLink = document.getElementById('sobre');
     const contatoLink = document.getElementById('contato');
 
-    homeLink.addEventListener('click', function(event) {
+    homeLink.addEventListener('click', function (event) {
         event.preventDefault();
         alert('Redirecionando para a home page...');
         window.location.href = '../../front-end/page_entrada/page_entrada.html';
     });
 
-    sobreLink.addEventListener('click', function(event) {
+    sobreLink.addEventListener('click', function (event) {
         event.preventDefault();
         window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     });
 
-    contatoLink.addEventListener('click', function(event) {
+    contatoLink.addEventListener('click', function (event) {
         event.preventDefault();
         let escolha = prompt(
             "Entre em contato com os desenvolvedores do projeto:\n" +
@@ -64,4 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
             alert("Opção inválida. Tente novamente.");
         }
     });
+
+
 });

@@ -52,15 +52,26 @@ app.post("/cadastro", (req, res) => {
 app.post("/login", (req, res) => {
   const { email, senha } = req.body;
 
+  // validação de email e senha //
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if(!email || !emailRegex.test(email)) {
+    return res.status(400).json({ sucess: false,message: "Email inválido!" });
+  }
+
+  if (!senha || senha.length < 6) {
+    return res.status(400).json({ sucess: false,message: "Senha inválida!" });
+  }
+
   const sql = "SELECT * FROM users WHERE email = ? AND senha = ?";
   db.get(sql, [email, senha], (err, row) => {
     if (err) {
-      return res.status(500).json({ message: "Erro no servidor." });
+      return res.status(500).json({ sucess: false, message: "Erro no servidor." });
     }
     if (!row) {
-      return res.status(401).json({ message: "Credenciais inválidas!" });
+      return res.status(401).json({ sucess: false, message: "Credenciais inválidas!" });
     }
-    res.json({ message: "Login bem-sucedido!", user: row });
+    res.json({ sucess: true, message: "Login bem-sucedido!", user: row });
   });
 });
 
