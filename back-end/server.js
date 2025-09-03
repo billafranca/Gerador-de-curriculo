@@ -11,7 +11,7 @@ const port = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// conecta ao banco SQLite
+// conecta no sqlite, lembrar de usar node server.js pra conectar //
 const db = new sqlite3.Database("users.db", (err) => {
   if (err) {
     console.error("Erro ao conectar no banco:", err.message);
@@ -20,7 +20,7 @@ const db = new sqlite3.Database("users.db", (err) => {
   }
 });
 
-// cria tabela se não existir
+// cria tabela no banco de dados e relaciona com users.db
 db.run(`
   CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
