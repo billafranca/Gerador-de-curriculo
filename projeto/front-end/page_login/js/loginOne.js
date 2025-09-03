@@ -2,11 +2,28 @@
 document.getElementById('formulario').addEventListener('submit', function (event) {
     event.preventDefault(); // impede envio normal
 
-    const nome = document.getElementById('nome').value;
-    const email = document.getElementById('email').value;
+    
+
+    const nome = document.getElementById('nome').value.trim();
+    const email = document.getElementById('email').value.trim();
     const senha = document.getElementById('senha').value;
 
     const dados = { nome, email, senha };
+
+    // Validações
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
+    const nomeRegex = /^[a-zA-ZÀ-ÿ\s]+$/;
+    if (!nome) {
+        return alert("Digite seu nome!");
+    }if (!nomeRegex.test(nome)) {
+        return alert("Digite um nome válido!");
+    }
+    if (!emailRegex.test(email)) {
+        return alert("Digite um email válido (ex: exemplo@gmail.com)");
+    }
+    if (senha.length < 6) {
+        return alert("A senha precisa ter pelo menos 6 caracteres!");
+    }
 
     fetch('http://localhost:3000/cadastro', {
         method: 'POST',
