@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let idiomasSelecionados = [];
 
-    // Seleção de idiomas
+    
     select.addEventListener("change", () => {
         const valor = select.value;
         if (valor && !idiomasSelecionados.includes(valor)) {
@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Funções de geração de PDF por modelo
     function gerarPDFModeloSimples(dados) {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
