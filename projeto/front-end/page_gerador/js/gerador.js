@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let idiomasSelecionados = [];
 
-    
+
     select.addEventListener("change", () => {
         const valor = select.value;
         if (valor && !idiomasSelecionados.includes(valor)) {
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
         doc.text("Currículo", 105, 15, { align: "center" });
 
         doc.setFontSize(12);
-        doc.setTextColor(0,0,0);
+        doc.setTextColor(0, 0, 0);
 
         doc.text(`Nome: ${dados.nome}`, 20, 30);
         doc.text(`Email: ${dados.email}`, 20, 40);
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
         doc.text("Currículo", 105, 20, { align: "center" });
 
         doc.setFontSize(12);
-        doc.setTextColor(0,0,0);
+        doc.setTextColor(0, 0, 0);
 
         doc.text(`Nome: ${dados.nome}`, 20, 40);
         doc.text(`Email: ${dados.email}`, 20, 50);
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
         doc.setFontSize(12);
         doc.text(dados.nome, 25, 20, { align: "center", baseline: "middle" });
 
-        doc.setTextColor(0,0,0);
+        doc.setTextColor(0, 0, 0);
         doc.setFontSize(12);
 
         doc.text("Objetivo:", 60, 20);
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
         doc.text("Experiência Profissional:", 60, 70);
         doc.text(dados.experiencia, 60, 77, { maxWidth: 140 });
 
-        doc.text("Habilidades:", 60, 95);
+        doc.text("Habilidades:", 60, 120);
         doc.text(dados.habilidades, 60, 102, { maxWidth: 140 });
 
         doc.text("Idiomas:", 60, 120);
@@ -170,7 +170,38 @@ document.addEventListener('DOMContentLoaded', function () {
         return doc;
     }
 
-    // Validação e geração do PDF
+    function AlterarFonte(estilo) {
+        const fonte = estilo;
+        const doc = new jsPDF();
+
+        switch (fonte) {
+            case "arial":
+                doc.setFont("helvetica");
+                break;
+            case "times":
+                doc.setFont("times");
+                break;
+            case "courier":
+                doc.setFont("courier");
+                break;
+            default:
+                doc.setFont("helvetica");
+        }
+
+        const fotoPerfil = document.getElementById("foto").files[0];
+
+        if (fotoPerfil) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const imgData = e.target.result;
+                doc.addImage(imgData, 'JPEG', 150, 10, 40, 40);
+                // Se quiser salvar já com a foto:
+                doc.save("curriculo_com_foto.pdf");
+            };
+            reader.readAsDataURL(fotoPerfil);
+        }
+    }
+
     form.addEventListener('submit', function (event) {
         event.preventDefault();
 
@@ -241,11 +272,13 @@ document.addEventListener('DOMContentLoaded', function () {
             competencias: document.getElementById('competencias').value.trim(),
             idiomas: idiomasSelecionados,
             modelo: modelo,
-            cor: cor
+            cor: cor,
+            foto: document.getElementById("foto").files[0]
+
         };
 
         let doc;
-        switch(modelo) {
+        switch (modelo) {
             case "simples":
                 doc = gerarPDFModeloSimples(dadosFormulario);
                 break;
@@ -260,7 +293,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
         }
 
-        doc.save(`${dadosFormulario.nome}_curriculo.pdf`);
+        if (dadosFormulario.foto) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                doc.addImage(e.target.result, 'JPEG', 150, 10, 40, 40); 
+                doc.save(`${dadosFormulario.nome}_curriculo.pdf`);
+            };
+            reader.readAsDataURL(dadosFormulario.foto);
+        } else {
+            doc.save(`${dadosFormulario.nome}_curriculo.pdf`);
+        }
 
         alert("Currículo gerado com sucesso!");
         form.reset();
@@ -268,7 +310,7 @@ document.addEventListener('DOMContentLoaded', function () {
         atualizarTags();
     });
 
-    // Navegação
+    
     homeLink.addEventListener('click', function (event) {
         event.preventDefault();
         alert('Redirecionando para a home page ...');
