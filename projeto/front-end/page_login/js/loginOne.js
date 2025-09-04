@@ -34,7 +34,7 @@ document.getElementById('formulario').addEventListener('submit', function (event
         .then(data => {
             alert(data.message);
             if (data.id) {
-                window.location.href = '../page_icones/src/page_icones.html';
+                window.location.href = './login-dois.html';
             }
         })
         .catch(error => {

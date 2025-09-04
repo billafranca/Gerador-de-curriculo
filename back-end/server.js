@@ -74,7 +74,7 @@ app.post("/login", (req, res) => {
   if (!email || !senha) {
     return res.status(400).json({ success: false, message: "Preencha todos os campos!" });
   }
-
+  // consulta o usuário pelo email
   const sql = "SELECT * FROM users WHERE email = ?";
   db.get(sql, [email], async (err, row) => {
     if (err) {
