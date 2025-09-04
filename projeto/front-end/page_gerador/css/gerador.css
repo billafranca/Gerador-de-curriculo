@@ -241,7 +241,7 @@ nav a:hover {
     backdrop-filter: blur(6px);
     box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.07);
     border-top: 1px solid #eee;
-    margin-top: 80rem;
+    margin-top: 20rem;
     font-size: 0.9rem;
     color: #555;
 }
@@ -270,4 +270,28 @@ nav a:hover {
     font-size: 2rem;
     margin-bottom: 1rem;
     color: #333;
+}
+
+
+.input-group #cor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    margin-left: 2rem;
+}
+
+#cor[type="color"] {
+    width: 20%;
+    height: 20%;
+    border-radius: 12px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+#cor[type="color"]:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }

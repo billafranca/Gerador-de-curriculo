@@ -28,7 +28,7 @@
     </header>
 
     <section id="sectionForm">
-        <form id="formulario" method="post" action="../../../back-end/main.go">
+        <form id="formulario">
             <h3 id="titleForm">
                 <img src="../page_login/images/gera.png" alt="Logo">
                 Gerarrículo
@@ -99,7 +99,7 @@
                     <option value="Vietnamita">Vietnamita</option>
                     <option value="Hebraico">Hebraico</option>
                     <option value="Outros">Outros</option>
-                    
+
                 </select>
 
 
@@ -123,6 +123,21 @@
                 <textarea id="competencias" name="competencias" rows="2"></textarea>
             </div>
 
+            <div class="input-group">
+                <label for="modelo">Escolha o modelo:</label>
+                <select id="modelo" name="modelo">
+                    <option value="simples">Simples</option>
+                    <option value="colorido">Colorido</option>
+                    <option value="barra">Barra Lateral</option>
+                </select>
+            </div>
+
+            
+            <div class="input-group">
+                <label for="cor">Escolha a cor principal:</label>
+                <input type="color" id="cor" name="cor" value="#2980b9">
+            </div>
+
             <button id="botao" type="submit">Gerar Currículo</button>
         </form>
     </section>
@@ -130,9 +145,9 @@
     <section id="modelos">
         <h3>Modelos de Currículo</h3>
         <div class="modelos-container">
-            <img src="../page_gerador/images/modelo1.png" alt="Modelo 1">
-            <img src="../page_gerador/images/modelo2.png" alt="Modelo 2">
-            <img src="../page_gerador/images/modelo3.png" alt="Modelo 3">
+            <img src="images/modelo1.webp" alt="Modelo 1">
+            <img src="images/modelo2.webp" alt="Modelo 2">
+            <img src="images/modelo3.webp" alt="Modelo 3">
         </div>
     </section>
 
@@ -147,9 +162,12 @@
     </footer>
 
     <script src="../page_gerador/js/gerador.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+
+
 </body>
 
 </html>
