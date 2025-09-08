@@ -79,12 +79,7 @@
             y += 8;
         }
 
-        // Objetivo
-        titulo("Objetivo");
-        doc.setFont("helvetica", "normal");
-        doc.setFontSize(12);
-        doc.text(dados.objetivo, 20, y, { maxWidth: 170 });
-        y += 20;
+      
 
         // Formação
         titulo("Formação Acadêmica");
@@ -165,10 +160,7 @@
         doc.setFont("helvetica", "normal");
         doc.text(dados.endereco, 50, 70);
 
-        doc.setFont("helvetica", "bold");
-        doc.text("Objetivo:", 20, 85);
-        doc.setFont("helvetica", "normal");
-        doc.text(dados.objetivo, 20, 92, { maxWidth: 170 });
+        
 
         doc.setFont("helvetica", "bold");
         doc.text("Formação Acadêmica:", 20, 110);
@@ -223,10 +215,7 @@
         doc.setTextColor(0, 0, 0);
         doc.setFontSize(12);
 
-        doc.setFont("helvetica", "bold");
-        doc.text("Objetivo:", 60, 20);
-        doc.setFont("helvetica", "normal");
-        doc.text(dados.objetivo, 60, 27, { maxWidth: 140 });
+       
 
         doc.setFont("helvetica", "bold");
         doc.text("Formação Acadêmica:", 60, 45);
@@ -282,9 +271,6 @@
         doc.setFontSize(26);
         doc.text(dados.nome, 20, 30);
         
-        doc.setFont("helvetica", "normal");
-        doc.setFontSize(12);
-       doc.text(dados.objetivo, 20, 50, { maxWidth: 200 });
         
         let y = 60;
         
@@ -383,7 +369,7 @@
                 }
             }
             if (!validarCampo('endereco', 'Endereço')) return;
-            if (!validarCampo('objetivo', 'Objetivo Profissional')) return;
+            
             if (!validarCampo('formacao', 'Formação Acadêmica')) return;
             if (!validarCampo('experiencia', 'Experiência Profissional')) return;
             if (!validarCampo('habilidades', 'Habilidades')) return;
@@ -412,7 +398,6 @@
                 email: document.getElementById('email').value.trim(),
                 telefone: document.getElementById('telefone').value.trim(),
                 endereco: document.getElementById('endereco').value.trim(),
-                objetivo: document.getElementById('objetivo').value.trim(),
                 formacao: document.getElementById('formacao').value.trim(),
                 experiencia: document.getElementById('experiencia').value.trim(),
                 habilidades: document.getElementById('habilidades').value.trim(),
