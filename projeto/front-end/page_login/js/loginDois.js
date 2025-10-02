@@ -61,4 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
             alert("Opção inválida. Tente novamente.");
         }
     });
+
+    document.getElementById('cadastroExistente').addEventListener("click", (event) => {
+        event.preventDefault();
+        window.location.href = '../../front-end/page_login/login.html'
+    })
 });

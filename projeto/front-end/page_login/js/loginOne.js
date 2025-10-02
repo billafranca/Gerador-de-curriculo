@@ -48,6 +48,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const homeLink = document.getElementById('home');
     const sobreLink = document.getElementById('sobre');
     const contatoLink = document.getElementById('contato');
+    const loginExist = document.getElementById('loginExistente')
+
+    loginExist.addEventListener("click", function(){
+        window.location.href = '../../front-end/page_login/login-dois.html'
+    })
 
     homeLink.addEventListener('click', function (event) {
         event.preventDefault();
