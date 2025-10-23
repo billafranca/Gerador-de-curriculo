@@ -16,6 +16,7 @@ nav {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
     flex-wrap: wrap;
     gap: 1rem;
+    cursor: pointer;
 }
 
 nav .logo img {
