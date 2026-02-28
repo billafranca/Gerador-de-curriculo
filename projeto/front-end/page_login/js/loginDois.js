@@ -37,7 +37,7 @@ document.getElementById('formulario').addEventListener('submit', function (event
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('home').addEventListener('click', (event) => {
         event.preventDefault();
-        window.location.href = '../../front-end/page_entrada/page_entrada.html';
+        window.location.href = '../../front-end/page_entrada/index.html';
     });
 
     document.getElementById('sobre').addEventListener('click', (event) => {

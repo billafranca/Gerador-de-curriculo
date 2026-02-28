@@ -1,6 +1,6 @@
-// 1️⃣ Listener do formulário
+
 document.getElementById('formulario').addEventListener('submit', function (event) {
-    event.preventDefault(); // impede envio normal
+    event.preventDefault(); 
 
     
 
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     homeLink.addEventListener('click', function (event) {
         event.preventDefault();
         alert('Redirecionando para a home page...');
-        window.location.href = '../../front-end/page_entrada/page_entrada.html';
+        window.location.href = '../../front-end/page_entrada/index.html';
     });
 
     sobreLink.addEventListener('click', function (event) {
