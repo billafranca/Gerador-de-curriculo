@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     btn.addEventListener("click", function () {
         alert("redirecionando...");
-        window.location.href = 'gerador.html';
+        window.location.href = '../gerador.html';
     })
 
     homeLink.addEventListener('click', function (event) {
