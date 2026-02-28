@@ -1,47 +1,47 @@
-    document.addEventListener('DOMContentLoaded', function () {
-        const homeLink = document.getElementById('home');
-        const sobreLink = document.getElementById('sobre');
-        const select = document.getElementById("idiomaSelect");
-        const container = document.getElementById("idiomasContainer");
-        const form = document.getElementById("formulario");
-        const contatoLink = document.getElementById("contato");
+document.addEventListener('DOMContentLoaded', function () {
+    const homeLink = document.getElementById('home');
+    const sobreLink = document.getElementById('sobre');
+    const select = document.getElementById("idiomaSelect");
+    const container = document.getElementById("idiomasContainer");
+    const form = document.getElementById("formulario");
+    const contatoLink = document.getElementById("contato");
 
-        let idiomasSelecionados = [];
+    let idiomasSelecionados = [];
 
 
-        select.addEventListener("change", () => {
-            const valor = select.value;
-            if (valor && !idiomasSelecionados.includes(valor)) {
-                idiomasSelecionados.push(valor);
-                atualizarTags();
-            }
-            select.selectedIndex = 0;
-        });
-
-        function atualizarTags() {
-            container.innerHTML = "";
-            idiomasSelecionados.forEach((idioma, index) => {
-                const tag = document.createElement("div");
-                tag.classList.add("idiomaTag");
-                tag.textContent = idioma;
-
-                const remover = document.createElement("span");
-                remover.textContent = "×";
-                remover.addEventListener("click", () => {
-                    idiomasSelecionados.splice(index, 1);
-                    atualizarTags();
-                });
-
-                tag.appendChild(remover);
-                container.appendChild(tag);
-            });
+    select.addEventListener("change", () => {
+        const valor = select.value;
+        if (valor && !idiomasSelecionados.includes(valor)) {
+            idiomasSelecionados.push(valor);
+            atualizarTags();
         }
+        select.selectedIndex = 0;
+    });
 
-        function gerarPDFModeloSimples(dados) {
+    function atualizarTags() {
+        container.innerHTML = "";
+        idiomasSelecionados.forEach((idioma, index) => {
+            const tag = document.createElement("div");
+            tag.classList.add("idiomaTag");
+            tag.textContent = idioma;
+
+            const remover = document.createElement("span");
+            remover.textContent = "×";
+            remover.addEventListener("click", () => {
+                idiomasSelecionados.splice(index, 1);
+                atualizarTags();
+            });
+
+            tag.appendChild(remover);
+            container.appendChild(tag);
+        });
+    }
+
+    function gerarPDFModeloSimples(dados) {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
 
-        // Cabeçalho
+
         doc.setFillColor(dados.cor);
         doc.rect(0, 0, 210, 40, "F");
 
@@ -79,7 +79,7 @@
             y += 8;
         }
 
-      
+
 
         // Formação
         titulo("Formação Acadêmica");
@@ -125,7 +125,7 @@
 
 
 
-        function gerarPDFModeloColorido(dados) {
+    function gerarPDFModeloColorido(dados) {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
 
@@ -160,7 +160,7 @@
         doc.setFont("helvetica", "normal");
         doc.text(dados.endereco, 50, 70);
 
-        
+
 
         doc.setFont("helvetica", "bold");
         doc.text("Formação Acadêmica:", 20, 110);
@@ -200,7 +200,7 @@
     }
 
 
-        function gerarPDFModeloBarra(dados) {
+    function gerarPDFModeloBarra(dados) {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
 
@@ -215,7 +215,7 @@
         doc.setTextColor(0, 0, 0);
         doc.setFontSize(12);
 
-       
+
 
         doc.setFont("helvetica", "bold");
         doc.text("Formação Acadêmica:", 60, 45);
@@ -258,23 +258,23 @@
 
 
     // papai o baguio ta dahora
-        const gerarPDFModeloModerno = (dados) => {
+    const gerarPDFModeloModerno = (dados) => {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
-        
-        
+
+
         doc.setFillColor(dados.cor);
         doc.rect(0, 0, 210, 50, "F");
-        
+
         doc.setTextColor("#fff");
         doc.setFont("helvetica", "bold");
         doc.setFontSize(26);
         doc.text(dados.nome, 20, 30);
-        
-        
+
+
         let y = 60;
-        
-        
+
+
         const criarSecao = (titulo, conteudo) => {
             doc.setFont("helvetica", "bold");
             doc.setFontSize(14);
@@ -287,198 +287,199 @@
             y += 8;
             doc.setFont("helvetica", "normal");
             doc.setFontSize(12);
-            doc.setTextColor(0,0,0);
+            doc.setTextColor(0, 0, 0);
             doc.text(conteudo, 20, y, { maxWidth: 170 });
             y += 18;
         };
-        
+        criarSecao("Contato", `${dados.email} | ${dados.telefone} | ${dados.endereco}`);
         criarSecao("Formação Acadêmica", dados.formacao);
         criarSecao("Experiência Profissional", dados.experiencia);
         criarSecao("Habilidades", dados.habilidades);
         criarSecao("Idiomas", dados.idiomas.join(", "));
-        if(dados.certificacoes) criarSecao("Certificações", dados.certificacoes);
-        if(dados.competencias) criarSecao("Competências", dados.competencias);
+        if (dados.certificacoes) criarSecao("Certificações", dados.certificacoes);
+        if (dados.competencias) criarSecao("Competências", dados.competencias);
 
         return doc;
     }
 
 
 
-        function AlterarFonte(estilo) {
-            const fonte = estilo;
-            const doc = new jsPDF();
+    function AlterarFonte(estilo) {
+        const fonte = estilo;
+        const doc = new jsPDF();
 
-            switch (fonte) {
-                case "arial":
-                    doc.setFont("helvetica");
-                    break;
-                case "times":
-                    doc.setFont("times");
-                    break;
-                case "courier":
-                    doc.setFont("courier");
-                    break;
-                default:
-                    doc.setFont("helvetica");
-            }
-
-            const fotoPerfil = document.getElementById("foto").files[0];
-
-            if (fotoPerfil) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    const imgData = e.target.result;
-                    doc.addImage(imgData, 'JPEG', 150, 10, 40, 40);
-                    // Se quiser salvar já com a foto:
-                    doc.save("curriculo_com_foto.pdf");
-                };
-                reader.readAsDataURL(fotoPerfil);
-            }
+        switch (fonte) {
+            case "arial":
+                doc.setFont("helvetica");
+                break;
+            case "times":
+                doc.setFont("times");
+                break;
+            case "courier":
+                doc.setFont("courier");
+                break;
+            default:
+                doc.setFont("helvetica");
         }
 
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
+        const fotoPerfil = document.getElementById("foto").files[0];
 
-            function validarCampo(id, nomeCampo) {
-                const valor = document.getElementById(id).value.trim();
-                if (!valor) {
-                    alert(`O campo "${nomeCampo}" é obrigatório.`);
-                    document.getElementById(id).focus();
-                    return false;
-                }
-                return true;
-            }
-
-            if (!validarCampo('nome', 'Nome Completo')) return;
-            if (!validarCampo('email', 'Email')) {
-                const email = document.getElementById('email').value.trim();
-                const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!regexEmail.test(email)) {
-                    alert("Digite um email válido!");
-                    document.getElementById('email').focus();
-                    return;
-                }
-            }
-            if (!validarCampo('telefone', 'Telefone')) {
-                const telefone = document.getElementById('telefone').value.trim();
-                const regexTel = /^\+?\d{8,15}$/;
-                if (!regexTel.test(telefone)) {
-                    alert("Digite um telefone válido (apenas números, pode incluir +).");
-                    document.getElementById('telefone').focus();
-                    return;
-                }
-            }
-            if (!validarCampo('endereco', 'Endereço')) return;
-            
-            if (!validarCampo('formacao', 'Formação Acadêmica')) return;
-            if (!validarCampo('experiencia', 'Experiência Profissional')) return;
-            if (!validarCampo('habilidades', 'Habilidades')) return;
-
-            if (idiomasSelecionados.length === 0) {
-                alert("Selecione pelo menos um idioma.");
-                select.focus();
-                return;
-            }
-
-            const modelo = document.getElementById("modelo").value;
-            if (!modelo) {
-                alert("Selecione um modelo de currículo.");
-                return;
-            }
-
-            const cor = document.getElementById("cor").value;
-            if (!cor) {
-                alert("Selecione uma cor.");
-                document.getElementById("cor").focus();
-                return;
-            }
-
-            const dadosFormulario = {
-                nome: document.getElementById('nome').value.trim(),
-                email: document.getElementById('email').value.trim(),
-                telefone: document.getElementById('telefone').value.trim(),
-                endereco: document.getElementById('endereco').value.trim(),
-                formacao: document.getElementById('formacao').value.trim(),
-                experiencia: document.getElementById('experiencia').value.trim(),
-                habilidades: document.getElementById('habilidades').value.trim(),
-                certificacoes: document.getElementById('certificacoes').value.trim(),
-                competencias: document.getElementById('competencias').value.trim(),
-                idiomas: idiomasSelecionados,
-                modelo: modelo,
-                cor: cor,
-                foto: document.getElementById("foto").files[0]
-
+        if (fotoPerfil) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const imgData = e.target.result;
+                doc.addImage(imgData, 'JPEG', 150, 10, 40, 40);
+                // Se quiser salvar já com a foto:
+                doc.save("curriculo_com_foto.pdf");
             };
+            reader.readAsDataURL(fotoPerfil);
+        }
+    }
 
-            let doc;
-            switch (modelo) {
-                case "simples":
-                    doc = gerarPDFModeloSimples(dadosFormulario);
-                    break;
-                case "colorido":
-                    doc = gerarPDFModeloColorido(dadosFormulario);
-                    break;
-                case "barra":
-                    doc = gerarPDFModeloBarra(dadosFormulario);
-                    break;
-                case "moderno":
-                    doc = gerarPDFModeloModerno(dadosFormulario);
-                    break;
-                default:
-                    alert("Selecione um modelo válido!");
-                    return;
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        function validarCampo(id, nomeCampo) {
+            const valor = document.getElementById(id).value.trim();
+            if (!valor) {
+                alert(`O campo "${nomeCampo}" é obrigatório.`);
+                document.getElementById(id).focus();
+                return false;
             }
+            return true;
+        }
 
-            if (dadosFormulario.foto) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    doc.addImage(e.target.result, 'JPEG', 150, 10, 40, 40); 
-                    doc.save(`${dadosFormulario.nome}_curriculo.pdf`);
-                };
-                reader.readAsDataURL(dadosFormulario.foto);
-            } else {
+        if (!validarCampo('nome', 'Nome Completo')) return;
+        if (!validarCampo('email', 'Email')) return;
+
+        const email = document.getElementById('email').value.trim();
+        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!regexEmail.test(email)) {
+            alert("Digite um email válido!");
+            document.getElementById('email').focus();
+            return;
+        }
+        if (!validarCampo('telefone', 'Telefone')) return;
+
+        const telefone = document.getElementById('telefone').value.trim();
+        const regexTel = /^\+?\d{8,15}$/;
+        if (!regexTel.test(telefone)) {
+            alert("Digite um telefone válido.");
+            document.getElementById('telefone').focus();
+            return;
+
+        }
+        if (!validarCampo('endereco', 'Endereço')) return;
+
+        if (!validarCampo('formacao', 'Formação Acadêmica')) return;
+        if (!validarCampo('experiencia', 'Experiência Profissional')) return;
+        if (!validarCampo('habilidades', 'Habilidades')) return;
+
+        if (idiomasSelecionados.length === 0) {
+            alert("Selecione pelo menos um idioma.");
+            select.focus();
+            return;
+        }
+
+        const modelo = document.getElementById("modelo").value;
+        if (!modelo) {
+            alert("Selecione um modelo de currículo.");
+            return;
+        }
+
+        const cor = document.getElementById("cor").value;
+        if (!cor) {
+            alert("Selecione uma cor.");
+            document.getElementById("cor").focus();
+            return;
+        }
+
+        const dadosFormulario = {
+            nome: document.getElementById('nome').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            telefone: document.getElementById('telefone').value.trim(),
+            endereco: document.getElementById('endereco').value.trim(),
+            formacao: document.getElementById('formacao').value.trim(),
+            experiencia: document.getElementById('experiencia').value.trim(),
+            habilidades: document.getElementById('habilidades').value.trim(),
+            certificacoes: document.getElementById('certificacoes').value.trim(),
+            competencias: document.getElementById('competencias').value.trim(),
+            idiomas: idiomasSelecionados,
+            modelo: modelo,
+            cor: cor,
+            foto: document.getElementById("foto").files[0]
+
+        };
+
+        let doc;
+        switch (modelo) {
+            case "simples":
+                doc = gerarPDFModeloSimples(dadosFormulario);
+                break;
+            case "colorido":
+                doc = gerarPDFModeloColorido(dadosFormulario);
+                break;
+            case "barra":
+                doc = gerarPDFModeloBarra(dadosFormulario);
+                break;
+            case "moderno":
+                doc = gerarPDFModeloModerno(dadosFormulario);
+                break;
+            default:
+                alert("Selecione um modelo válido!");
+                return;
+        }
+
+        if (dadosFormulario.foto) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                doc.addImage(e.target.result, 'JPEG', 150, 10, 40, 40);
                 doc.save(`${dadosFormulario.nome}_curriculo.pdf`);
-            }
+            };
+            reader.readAsDataURL(dadosFormulario.foto);
+        } else {
+            doc.save(`${dadosFormulario.nome}_curriculo.pdf`);
+        }
 
-            alert("Currículo gerado com sucesso!");
-            form.reset();
-            idiomasSelecionados = [];
-            atualizarTags();
-        });
-
-        
-        homeLink.addEventListener('click', function (event) {
-            event.preventDefault();
-            alert('Redirecionando para a home page ...');
-            window.location.href = 'page_entrada.html';
-        });
-
-        sobreLink.addEventListener('click', function (event) {
-            event.preventDefault();
-            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-        });
-
-        contatoLink.addEventListener('click', function (event) {
-            event.preventDefault();
-
-            let escolha = prompt(
-                "Entre em contato com os desenvolvedores do projeto:\n" +
-                "Digite 1 para Pedro Billafranca\n" +
-                "Digite 2 para Lucas Rabello"
-            );
-
-            if (!escolha) return;
-
-            escolha = escolha.trim();
-
-            if (escolha === "1") {
-                alert("Redirecionando para o GitHub de Pedro Billafranca...");
-                window.location.href = "https://github.com/billafranca";
-            } else if (escolha === "2") {
-                alert("Redirecionando para o GitHub de Lucas Rabello...");
-                window.location.href = "https://github.com/lucas-rabello-dev";
-            } else {
-                alert("Opção inválida. Tente novamente.");
-            }
-        });
+        alert("Currículo gerado com sucesso!");
+        form.reset();
+        idiomasSelecionados = [];
+        atualizarTags();
     });
+
+
+    homeLink.addEventListener('click', function (event) {
+        event.preventDefault();
+        alert('Redirecionando para a home page ...');
+        window.location.href = 'index.html';
+    });
+
+    sobreLink.addEventListener('click', function (event) {
+        event.preventDefault();
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    });
+
+    contatoLink.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        let escolha = prompt(
+            "Entre em contato com os desenvolvedores do projeto:\n" +
+            "Digite 1 para Pedro Billafranca\n" +
+            "Digite 2 para Lucas Rabello"
+        );
+
+        if (!escolha) return;
+
+        escolha = escolha.trim();
+
+        if (escolha === "1") {
+            alert("Redirecionando para o GitHub de Pedro Billafranca...");
+            window.location.href = "https://github.com/billafranca";
+        } else if (escolha === "2") {
+            alert("Redirecionando para o GitHub de Lucas Rabello...");
+            window.location.href = "https://github.com/lucas-rabello-dev";
+        } else {
+            alert("Opção inválida. Tente novamente.");
+        }
+    });
+});
