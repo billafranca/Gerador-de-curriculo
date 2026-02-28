@@ -4,9 +4,10 @@ document.addEventListener('DOMContentLoaded', function () {
     let btn = document.getElementById('btnComecar');
     let contatoLink = document.getElementById("contato");
 
-    btn.addEventListener("click", function () {
+    btn.addEventListener("click", function (event) {
+        event.preventDefault();
         alert("redirecionando...");
-        window.location.href = '../gerador.html';
+        window.location.href = 'gerador.html';
     })
 
     homeLink.addEventListener('click', function (event) {
