@@ -450,7 +450,7 @@
         homeLink.addEventListener('click', function (event) {
             event.preventDefault();
             alert('Redirecionando para a home page ...');
-            window.location.href = '../page_entrada/page_entrada.html';
+            window.location.href = 'page_entrada.html';
         });
 
         sobreLink.addEventListener('click', function (event) {

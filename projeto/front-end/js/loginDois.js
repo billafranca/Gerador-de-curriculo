@@ -18,11 +18,11 @@ document.getElementById('formulario').addEventListener('submit', function (event
             if (data.success) {
                 alert(data.message);
 
-                // salva os dados do usuário
+                
                 localStorage.setItem('user', JSON.stringify(data.user));
 
-                // redireciona para a página inicial
-                window.location.href = '../page_icones/src/page_icones.html';
+               
+                window.location.href = 'page_icones.html';
             } else {
                 alert(data.message);
             }
