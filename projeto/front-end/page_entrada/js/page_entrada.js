@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     btn.addEventListener("click", function () {
-        window.location.href = "../../page_login/login.html";
+        window.location.href = "../../../page_login/login.html";
     })
 
     sobreLink.addEventListener('click', function (event) {
