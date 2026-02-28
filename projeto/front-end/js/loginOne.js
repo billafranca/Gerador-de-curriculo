@@ -34,7 +34,7 @@ document.getElementById('formulario').addEventListener('submit', function (event
         .then(data => {
             alert(data.message);
             if (data.id) {
-                window.location.href = './login-dois.html';
+                window.location.href = 'login-dois.html';
             }
         })
         .catch(error => {
@@ -51,13 +51,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginExist = document.getElementById('loginExistente')
 
     loginExist.addEventListener("click", function(){
-        window.location.href = '../../front-end/page_login/login-dois.html'
+        window.location.href = 'login-dois.html'
     })
 
     homeLink.addEventListener('click', function (event) {
         event.preventDefault();
         alert('Redirecionando para a home page...');
-        window.location.href = '../../front-end/page_entrada/index.html';
+        window.location.href = 'index.html';
     });
 
     sobreLink.addEventListener('click', function (event) {

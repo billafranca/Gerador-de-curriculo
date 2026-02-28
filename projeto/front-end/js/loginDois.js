@@ -37,7 +37,7 @@ document.getElementById('formulario').addEventListener('submit', function (event
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('home').addEventListener('click', (event) => {
         event.preventDefault();
-        window.location.href = '../../front-end/page_entrada/index.html';
+        window.location.href = 'index.html';
     });
 
     document.getElementById('sobre').addEventListener('click', (event) => {
@@ -64,6 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('cadastroExistente').addEventListener("click", (event) => {
         event.preventDefault();
-        window.location.href = '../../front-end/page_login/login.html'
+        window.location.href = 'login.html';
     })
 });

@@ -6,13 +6,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     btn.addEventListener("click", function () {
         alert("redirecionando...");
-        window.location.href = '../../page_gerador/gerador.html';
+        window.location.href = 'gerador.html';
     })
 
     homeLink.addEventListener('click', function (event) {
         event.preventDefault();
         alert('redirecionando para a home page ...');
-        window.location.href = '../../page_entrada/index.html';
+        window.location.href = 'index.html';
     });
     sobreLink.addEventListener('click', function (event) {
         event.preventDefault();
