@@ -329,7 +329,7 @@
                 reader.onload = function (e) {
                     const imgData = e.target.result;
                     doc.addImage(imgData, 'JPEG', 150, 10, 40, 40);
-                    // Se quiser salvar já com a foto:
+                   
                     doc.save("curriculo_com_foto.pdf");
                 };
                 reader.readAsDataURL(fotoPerfil);
